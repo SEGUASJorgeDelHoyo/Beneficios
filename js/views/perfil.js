@@ -36,20 +36,26 @@ export function renderPerfil() {
         </div>
         <div class="profile-card-preview" id="profile-preview">
           <div class="profile-card-visual" id="card-visual">
-            <div class="profile-card-logo">
-              <img src="./assets/Logo-Seguas_azul.jpg" alt="Logo SEGUAS" />
-            </div>
-            <div>
-              <div class="profile-card-name" id="card-name">${p.nombre || 'Nombre'} ${p.apellido || 'Apellido'}</div>
-              <div class="profile-card-dept" id="card-dept">${p.departamento || 'Departamento'}</div>
-            </div>
-            <div class="profile-card-contact" id="card-contact">
-              ${p.email || 'email@seguas.com'}<br>${p.telefono || '+34 000 000 000'}
-            </div>
+            <div class="profile-card-main">
+              <div class="profile-card-left">
+                <div class="profile-card-logo">
+                  <img src="./assets/Logo-Seguas_azul.jpg" alt="Logo SEGUAS" />
+                </div>
+                <div class="profile-card-meta">
+                  <div class="profile-card-name" id="card-name">${p.nombre || 'Nombre'} ${p.apellido || 'Apellido'}</div>
+                  <div class="profile-card-dept" id="card-dept">${p.departamento || 'Departamento'}</div>
+                </div>
+                <div class="profile-card-contact" id="card-contact">
+                  ${p.email || 'email@seguas.com'}<br>${p.telefono || '+34 000 000 000'}
+                </div>
+              </div>
 
-            <div class="profile-qr-container profile-qr-inside">
-              <div id="qr-code"></div>
-              <span class="profile-qr-label">Escanea para ver mi tarjeta de presentación</span>
+              <div class="profile-card-side">
+                <div class="profile-qr-container profile-qr-inside">
+                  <div id="qr-code"></div>
+                  <span class="profile-qr-label">Escanea para ver mi tarjeta de presentación</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
