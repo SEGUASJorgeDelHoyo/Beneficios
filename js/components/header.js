@@ -11,8 +11,8 @@ export function renderHeader(activeTab = 'todos', isAdmin = false) {
   return `
     <header class="app-header" id="main-header">
       <a href="#/todos" class="header-brand">
-        <div class="header-logo">S</div>
-        <div class="header-title"><span>SEGUAS</span> — Beneficios Sociales</div>
+        <div class="header-logo"><img src="./assets/Logo-Seguas_azul.jpg" alt="Logo SEGUAS" /></div>
+        <div class="header-title"><span></span> — Beneficios Sociales</div>
       </a>
       <nav class="header-nav" id="main-nav">
         ${tabs.map(t => `

@@ -53,7 +53,6 @@ export function renderPerfil() {
               <div class="profile-card-side">
                 <div class="profile-qr-container profile-qr-inside">
                   <div id="qr-code"></div>
-                  <span class="profile-qr-label">Escanea para ver mi tarjeta de presentación</span>
                 </div>
               </div>
             </div>
