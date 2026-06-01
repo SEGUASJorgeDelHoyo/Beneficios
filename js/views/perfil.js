@@ -37,7 +37,7 @@ export function renderPerfil() {
         <div class="profile-card-preview" id="profile-preview">
           <div class="profile-card-visual" id="card-visual">
             <div class="profile-card-logo">
-              <img src="./assets/Logo-Seguas_azul.jpg" alt="Logo SEGUAS" style="height: 40px; width: auto; object-fit: contain;" />
+              <img src="./assets/Logo-Seguas_azul.jpg" alt="Logo SEGUAS" />
             </div>
             <div>
               <div class="profile-card-name" id="card-name">${p.nombre || 'Nombre'} ${p.apellido || 'Apellido'}</div>
@@ -46,10 +46,11 @@ export function renderPerfil() {
             <div class="profile-card-contact" id="card-contact">
               ${p.email || 'email@seguas.com'}<br>${p.telefono || '+34 000 000 000'}
             </div>
-          </div>
-          <div class="profile-qr-container">
-            <div id="qr-code"></div>
-            <span class="profile-qr-label">Escanea para ver mi tarjeta de presentación</span>
+
+            <div class="profile-qr-container profile-qr-inside">
+              <div id="qr-code"></div>
+              <span class="profile-qr-label">Escanea para ver mi tarjeta de presentación</span>
+            </div>
           </div>
         </div>
       </div>
