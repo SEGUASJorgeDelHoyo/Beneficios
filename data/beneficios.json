@@ -1,0 +1,68 @@
+[
+  {
+    "id": "seguro-medico",
+    "titulo": "Seguro Médico Privado",
+    "descripcionCorta": "Cobertura médica completa para ti y tu familia con las mejores clínicas y especialistas.",
+    "descripcionExtendida": "En Seguas cuidamos de tu salud y la de los tuyos. Nuestro seguro médico privado te ofrece acceso a una amplia red de hospitales, clínicas y especialistas de primer nivel. Incluye consultas, pruebas diagnósticas, hospitalización, urgencias 24h y cobertura dental básica.\n\nAdemás, la empresa asume el 80% del coste de la póliza para el empleado y ofrece condiciones especiales para incluir a familiares directos (cónyuge e hijos). El seguro es efectivo desde el primer día de incorporación y no requiere período de carencia para la mayoría de coberturas.\n\nPuedes elegir entre diferentes niveles de cobertura según tus necesidades, desde el plan básico hasta el plan premium con coberturas internacionales.",
+    "imagen": "",
+    "imagenesAdicionales": [],
+    "categoria": "salud",
+    "icono": "🏥",
+    "fecha": "2026-01-15"
+  },
+  {
+    "id": "formacion-continua",
+    "titulo": "Formación Continua",
+    "descripcionCorta": "Acceso a cursos, certificaciones y programas formativos para tu desarrollo profesional.",
+    "descripcionExtendida": "Invertimos en tu crecimiento profesional. Cada empleado dispone de un presupuesto anual de formación que puede utilizar en cursos técnicos, certificaciones oficiales, masters o programas especializados relacionados con su puesto de trabajo.\n\nColaboramos con plataformas como Coursera, Udemy Business y centros de formación homologados. También organizamos formaciones internas impartidas por expertos del sector y fomentamos la asistencia a conferencias y eventos del sector industrial.\n\nEl tiempo dedicado a formación aprobada se considera tiempo de trabajo efectivo, y la empresa facilita la conciliación de horarios para que puedas asistir a las sesiones presenciales.",
+    "imagen": "",
+    "imagenesAdicionales": [],
+    "categoria": "formacion",
+    "icono": "🎓",
+    "fecha": "2026-02-01"
+  },
+  {
+    "id": "teletrabajo-flexible",
+    "titulo": "Teletrabajo Flexible",
+    "descripcionCorta": "Hasta 2 días por semana de trabajo remoto con horario flexible adaptado a tus necesidades.",
+    "descripcionExtendida": "La flexibilidad es clave para el bienestar. En Seguas ofrecemos un modelo de trabajo híbrido que permite trabajar desde casa hasta 2 días por semana, con la posibilidad de ampliar en circunstancias especiales.\n\nEl horario flexible incluye una franja de presencia obligatoria de 10:00 a 14:00, con libertad para organizar el resto de la jornada según tus necesidades. Además, los viernes se aplica jornada intensiva durante todo el año.\n\nProporcionamos todo el equipamiento necesario para trabajar desde casa: portátil, monitor adicional, teclado, ratón y silla ergonómica. También cubrimos parte del coste de la conexión a Internet.",
+    "imagen": "",
+    "imagenesAdicionales": [],
+    "categoria": "conciliacion",
+    "icono": "🏠",
+    "fecha": "2026-02-15"
+  },
+  {
+    "id": "cheque-restaurante",
+    "titulo": "Cheque Restaurante",
+    "descripcionCorta": "Tarjeta de restaurante con aportación mensual para tus comidas durante la jornada laboral.",
+    "descripcionExtendida": "Disfruta de tus comidas sin preocupaciones. Ofrecemos una tarjeta de cheque restaurante con una aportación mensual que puedes utilizar en miles de restaurantes, cafeterías y establecimientos de alimentación.\n\nLa aportación es de 11€ por día trabajado, lo que supone un ahorro fiscal significativo al estar exento de IRPF hasta el límite legal. La tarjeta se recarga automáticamente cada mes y puedes consultaR el saldo y los movimientos desde la app del proveedor.\n\nEs compatible con servicios de delivery y también se puede utilizar en supermercados para la compra de comida preparada.",
+    "imagen": "",
+    "imagenesAdicionales": [],
+    "categoria": "alimentacion",
+    "icono": "🍽️",
+    "fecha": "2026-03-01"
+  },
+  {
+    "id": "gimnasio-bienestar",
+    "titulo": "Descuentos en Gimnasio",
+    "descripcionCorta": "Acceso a gimnasios y centros deportivos con tarifas especiales para empleados de Seguas.",
+    "descripcionExtendida": "Tu salud física es importante. Hemos negociado acuerdos con las principales cadenas de gimnasios para que puedas acceder a tarifas corporativas con descuentos de hasta el 40% sobre el precio de mercado.\n\nLos convenios incluyen acceso a instalaciones deportivas, clases dirigidas, piscina y zona de spa. También puedes extender el descuento a un acompañante familiar.\n\nAdemás, organizamos actividades deportivas internas como torneos de pádel, running club y retos de equipo que fomentan la vida saludable y el compañerismo entre departamentos.",
+    "imagen": "",
+    "imagenesAdicionales": [],
+    "categoria": "salud",
+    "icono": "💪",
+    "fecha": "2026-03-15"
+  },
+  {
+    "id": "plan-pensiones",
+    "titulo": "Plan de Pensiones",
+    "descripcionCorta": "Plan de pensiones de empresa con aportaciones complementarias para asegurar tu futuro.",
+    "descripcionExtendida": "Piensa en tu futuro con tranquilidad. Seguas ofrece un plan de pensiones de empleo al que la empresa realiza aportaciones mensuales equivalentes al 3% del salario bruto del empleado.\n\nAdicionalmente, puedes realizar aportaciones voluntarias con ventajas fiscales significativas. El plan está gestionado por una entidad financiera de primer nivel y ofrece diferentes perfiles de inversión según tu tolerancia al riesgo y horizonte temporal.\n\nTienes acceso a una plataforma online donde puedes consultar la evolución de tu plan, modificar tu perfil de inversión y realizar simulaciones de tu ahorro a largo plazo. También organizamos sesiones informativas periódicas con asesores financieros.",
+    "imagen": "",
+    "imagenesAdicionales": [],
+    "categoria": "finanzas",
+    "icono": "📈",
+    "fecha": "2026-04-01"
+  }
+]
