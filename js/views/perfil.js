@@ -49,7 +49,7 @@ export function renderPerfil() {
           </div>
           <div class="profile-qr-container">
             <div id="qr-code"></div>
-            <span class="profile-qr-label">Escanea para guardar contacto</span>
+            <span class="profile-qr-label">Escanea para ver mi tarjeta de presentación</span>
           </div>
         </div>
       </div>
@@ -57,24 +57,27 @@ export function renderPerfil() {
   `;
 }
 
+function buildTarjetaUrl(perfil) {
+  const params = new URLSearchParams();
+  params.set('nombre', perfil.nombre || '');
+  params.set('apellido', perfil.apellido || '');
+  params.set('email', perfil.email || '');
+  params.set('departamento', perfil.departamento || '');
+  params.set('telefono', perfil.telefono || '');
+
+  const base = `${window.location.origin}${window.location.pathname}`;
+  return `${base}#/tarjeta?${params.toString()}`;
+}
+
 function generateQR(perfil) {
   const container = document.getElementById('qr-code');
   if (!container || typeof QRCode === 'undefined') return;
   container.innerHTML = '';
 
-  const vcard = `BEGIN:VCARD
-VERSION:3.0
-N:${perfil.apellido || ''};${perfil.nombre || ''}
-FN:${perfil.nombre || ''} ${perfil.apellido || ''}
-ORG:Seguas
-TITLE:${perfil.departamento || ''}
-TEL:${perfil.telefono || ''}
-EMAIL:${perfil.email || ''}
-URL:https://www.seguas.com
-END:VCARD`;
+  const url = buildTarjetaUrl(perfil);
 
   new QRCode(container, {
-    text: vcard,
+    text: url,
     width: 160,
     height: 160,
     colorDark: '#1a1a2e',
@@ -83,20 +86,42 @@ END:VCARD`;
   });
 }
 
-function updateCardPreview() {
-  // Corregido aquí: Apuntamos correctamente a la clase .profile-card-logo para asegurar que la imagen esté ahí
-  const logoEl = document.querySelector('.profile-card-logo');
-  if (logoEl && !logoEl.querySelector('img')) {
-    const img = document.createElement('img');
-    img.src = 'Logo-Seguas_azul.jpg';
-    img.alt = 'Seguas Logo';
-    img.style.height = '40px';
-    img.style.width = 'auto';
-    img.style.objectFit = 'contain';
-    logoEl.innerHTML = ''; // Limpiamos el texto plano sobrante si existiera
-    logoEl.appendChild(img);
-  }
+function parseQueryPerfil(queryString) {
+  const params = new URLSearchParams(queryString);
+  return {
+    nombre: params.get('nombre') || '',
+    apellido: params.get('apellido') || '',
+    email: params.get('email') || '',
+    departamento: params.get('departamento') || '',
+    telefono: params.get('telefono') || ''
+  };
+}
 
+export function renderTarjeta(queryString = '') {
+  const perfil = queryString ? parseQueryPerfil(queryString) : getPerfil();
+  return `
+    <div class="form-page" id="tarjeta-page">
+      <h1 class="form-page-title">Tarjeta de presentación</h1>
+      <p class="form-page-subtitle">Esta tarjeta muestra tus datos de contacto al escanear el QR.</p>
+      <div class="profile-card-preview profile-card-preview--share">
+        <div class="profile-card-visual profile-card-visual--large">
+          <div class="profile-card-logo">
+            <img src="./assets/Logo-Seguas_azul.jpg" alt="Logo SEGUAS" style="height: 40px; width: auto; object-fit: contain;" />
+          </div>
+          <div>
+            <div class="profile-card-name">${perfil.nombre || 'Nombre'} ${perfil.apellido || 'Apellido'}</div>
+            <div class="profile-card-dept">${perfil.departamento || 'Departamento'}</div>
+          </div>
+          <div class="profile-card-contact">
+            ${perfil.email || 'email@seguas.com'}<br>${perfil.telefono || '+34 000 000 000'}
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function updateCardPreview() {
   const nombre = document.getElementById('perfil-nombre')?.value || 'Nombre';
   const apellido = document.getElementById('perfil-apellido')?.value || 'Apellido';
   const email = document.getElementById('perfil-email')?.value || 'email@seguas.com';

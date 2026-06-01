@@ -24,6 +24,7 @@ export const provider = new GoogleAuthProvider();
 const ADMIN_EMAILS = [
   'admin@seguas.com',
   'jorge.hoyo@seguas.com',
+  'jorge.hoyo.seguas@gmail.com'
 ];
 
 export function isAdminUser(user) {

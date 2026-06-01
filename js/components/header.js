@@ -1,9 +1,12 @@
-export function renderHeader(activeTab = 'todos') {
+export function renderHeader(activeTab = 'todos', isAdmin = false) {
   const tabs = [
     { id: 'todos', label: 'Todos', hash: '#/todos' },
-    { id: 'nuevos', label: 'Nuevos', hash: '#/nuevos' },
     { id: 'perfil', label: 'Perfil', hash: '#/perfil' }
   ];
+
+  if (isAdmin) {
+    tabs.splice(1, 0, { id: 'nuevos', label: 'Nuevos', hash: '#/nuevos' });
+  }
 
   return `
     <header class="app-header" id="main-header">
@@ -18,7 +21,7 @@ export function renderHeader(activeTab = 'todos') {
       </nav>
       <div class="header-actions">
         <div id="user-card" class="user-card"><p>Inicia sesión para ver tus beneficios</p></div>
-        <button class="btn-secondary" id="btn-logic">Iniciar sesión</button>
+        <button class="btn-secondary" id="btn-logic">Iniciar sesión con Google</button>
         <button class="btn-primary" id="btn-logout" style="display:none;">Cerrar sesión</button>
       </div>
     </header>

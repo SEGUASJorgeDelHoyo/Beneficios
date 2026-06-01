@@ -1,10 +1,10 @@
-import { initData } from './data.js';
+import { initData, getPerfil, savePerfil } from './data.js';
 import { renderHeader } from './components/header.js';
 import { renderFooter } from './components/footer.js';
 import { renderTodos, bindTodosEvents } from './views/todos.js';
 import { renderDetalle, bindDetalleEvents } from './views/detalle.js';
 import { renderNuevos, bindNuevosEvents } from './views/nuevos.js';
-import { renderPerfil, bindPerfilEvents } from './views/perfil.js';
+import { renderPerfil, bindPerfilEvents, renderTarjeta } from './views/perfil.js';
 
 // Importaciones de Firebase
 import { signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
@@ -48,11 +48,17 @@ function updateUserUI(user) {
   currentIsAdmin = isAdminUser(user);
 
   if (user && userCard) {
+    const initials = user.displayName
+      ? user.displayName.split(' ').map(part => part[0]).join('').toUpperCase().slice(0, 2)
+      : 'US';
+
     userCard.innerHTML = `
-      <img src="${user.photoURL}" alt="Avatar" style="border-radius: 50%; width: 40px;">
-      <div>
-        <p>Bienvenido, ${user.displayName}</p>
-        <p style="font-size:0.8rem; color:#0a48a3; margin:0;">${currentIsAdmin ? 'Administrador' : 'Usuario estándar'}</p>
+      <div class="user-avatar">
+        ${user.photoURL ? `<img src="${user.photoURL}" alt="Avatar">` : `<span>${initials}</span>`}
+      </div>
+      <div class="user-card-info">
+        <p class="user-card-name">${user.displayName || user.email}</p>
+        <p class="user-card-role">${currentIsAdmin ? 'Administrador' : 'Usuario estándar'}</p>
       </div>
     `;
   } else if (userCard) {
@@ -63,10 +69,12 @@ function updateUserUI(user) {
   if (btnLogout) btnLogout.style.display = user ? 'block' : 'none';
 }
 
-onAuthStateChanged(auth, (user) => {
+async function handleAuthState(user) {
   updateUserUI(user);
   render();
-});
+}
+
+onAuthStateChanged(auth, handleAuthState);
 
 function showToast(message) {
   toastEl.textContent = message;
@@ -84,6 +92,10 @@ function parseRoute() {
     const id = hash.replace('#/nuevos/', '');
     return { view: 'nuevos', id };
   }
+  if (hash.startsWith('#/tarjeta')) {
+    const queryString = hash.includes('?') ? hash.split('?')[1] : '';
+    return { view: 'tarjeta', queryString };
+  }
   if (hash === '#/nuevos') return { view: 'nuevos' };
   if (hash === '#/perfil') return { view: 'perfil' };
   return { view: 'todos' };
@@ -98,7 +110,7 @@ function render() {
   const route = parseRoute();
   const activeTab = getActiveTab(route.view);
 
-  headerEl.innerHTML = renderHeader(activeTab);
+  headerEl.innerHTML = renderHeader(activeTab, currentIsAdmin);
   refreshHeaderControls();
   updateUserUI(currentUser);
   footerEl.innerHTML = renderFooter();
@@ -115,6 +127,9 @@ function render() {
     case 'perfil':
       mainEl.innerHTML = renderPerfil();
       bindPerfilEvents(showToast);
+      break;
+    case 'tarjeta':
+      mainEl.innerHTML = renderTarjeta(route.queryString);
       break;
     default:
       mainEl.innerHTML = renderTodos();
