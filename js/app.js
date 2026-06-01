@@ -110,6 +110,7 @@ function render() {
   const route = parseRoute();
   const activeTab = getActiveTab(route.view);
 
+  document.body.classList.toggle('page-tarjeta', route.view === 'tarjeta');
   headerEl.innerHTML = renderHeader(activeTab, currentIsAdmin);
   refreshHeaderControls();
   updateUserUI(currentUser);

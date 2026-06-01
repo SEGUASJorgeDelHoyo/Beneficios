@@ -288,16 +288,39 @@ input, select, textarea { font-family: inherit; }
   background: rgba(255,255,255,0.08);
 }
 .profile-card-logo { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; opacity: 0.8; }
-.profile-card-name { font-size: 1.25rem; font-weight: 700; }
-.profile-card-dept { font-size: 0.85rem; opacity: 0.8; }
-.profile-card-contact { font-size: 0.75rem; opacity: 0.7; margin-top: auto; }
+.profile-card-logo img { max-width: 140px; height: auto; }
+.profile-card-name { font-size: 1.25rem; font-weight: 700; word-break: break-word; }
+.profile-card-dept { font-size: 0.85rem; opacity: 0.8; word-break: break-word; }
+.profile-card-contact { font-size: 0.75rem; opacity: 0.7; margin-top: auto; word-break: break-word; }
 .profile-qr-container {
   margin-top: 1.5rem; padding: 1rem;
   background: #fff; border-radius: var(--radius-sm);
   display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  width: 100%; max-width: 240px;
 }
-.profile-qr-container canvas { border-radius: 4px; }
-.profile-qr-label { font-size: 0.75rem; color: var(--color-text-secondary); }
+.profile-qr-container canvas { width: 100% !important; height: auto !important; border-radius: 4px; }
+.profile-qr-label { font-size: 0.75rem; color: var(--color-text-secondary); text-align: center; }
+.profile-card-preview.profile-card-preview--share {
+  padding: 1rem 0 0;
+  border: none;
+  background: transparent;
+}
+.profile-card-visual.profile-card-visual--large {
+  max-width: 520px;
+  width: 100%;
+  min-height: 360px;
+  padding: 2rem;
+}
+.profile-card-visual.profile-card-visual--large .profile-card-contact {
+  font-size: 0.85rem;
+}
+.page-tarjeta .app-header,
+.page-tarjeta .app-footer {
+  display: none;
+}
+.page-tarjeta #app-content {
+  padding: 2rem 1rem 3rem;
+}
 
 /* ========== TOAST NOTIFICATION ========== */
 .toast {

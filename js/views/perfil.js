@@ -75,11 +75,12 @@ function generateQR(perfil) {
   container.innerHTML = '';
 
   const url = buildTarjetaUrl(perfil);
+  const size = Math.max(120, Math.min(200, Math.floor(container.clientWidth * 0.9)));
 
   new QRCode(container, {
     text: url,
-    width: 160,
-    height: 160,
+    width: size,
+    height: size,
     colorDark: '#1a1a2e',
     colorLight: '#ffffff',
     correctLevel: QRCode.CorrectLevel.M
@@ -100,21 +101,17 @@ function parseQueryPerfil(queryString) {
 export function renderTarjeta(queryString = '') {
   const perfil = queryString ? parseQueryPerfil(queryString) : getPerfil();
   return `
-    <div class="form-page" id="tarjeta-page">
-      <h1 class="form-page-title">Tarjeta de presentación</h1>
-      <p class="form-page-subtitle">Esta tarjeta muestra tus datos de contacto al escanear el QR.</p>
-      <div class="profile-card-preview profile-card-preview--share">
-        <div class="profile-card-visual profile-card-visual--large">
-          <div class="profile-card-logo">
-            <img src="./assets/Logo-Seguas_azul.jpg" alt="Logo SEGUAS" style="height: 40px; width: auto; object-fit: contain;" />
-          </div>
-          <div>
-            <div class="profile-card-name">${perfil.nombre || 'Nombre'} ${perfil.apellido || 'Apellido'}</div>
-            <div class="profile-card-dept">${perfil.departamento || 'Departamento'}</div>
-          </div>
-          <div class="profile-card-contact">
-            ${perfil.email || 'email@seguas.com'}<br>${perfil.telefono || '+34 000 000 000'}
-          </div>
+    <div class="profile-card-preview profile-card-preview--share" id="tarjeta-page">
+      <div class="profile-card-visual profile-card-visual--large">
+        <div class="profile-card-logo">
+          <img src="./assets/Logo-Seguas_azul.jpg" alt="Logo SEGUAS" />
+        </div>
+        <div>
+          <div class="profile-card-name">${perfil.nombre || 'Nombre'} ${perfil.apellido || 'Apellido'}</div>
+          <div class="profile-card-dept">${perfil.departamento || 'Departamento'}</div>
+        </div>
+        <div class="profile-card-contact">
+          ${perfil.email || 'email@seguas.com'}<br>${perfil.telefono || '+34 000 000 000'}
         </div>
       </div>
     </div>
@@ -161,6 +158,6 @@ export function bindPerfilEvents(showToast) {
     showToast('✅ Perfil guardado correctamente');
   });
 
-  // Initial QR generation
+  window.addEventListener('resize', () => generateQR(getPerfil()));
   setTimeout(() => generateQR(getPerfil()), 100);
 }
