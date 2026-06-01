@@ -55,7 +55,6 @@ input, select, textarea { font-family: inherit; }
 .header-brand { display: flex; align-items: center; gap: 12px; }
 .header-logo {
   width: 36px; height: 36px; border-radius: 8px;
-  background: var(--color-primary);
   display: flex; align-items: center; justify-content: center;
   color: #fff; font-weight: 700; font-size: 16px;
 }
@@ -299,6 +298,19 @@ input, select, textarea { font-family: inherit; }
   width: 100%; max-width: 240px;
 }
 .profile-qr-container canvas { width: 100% !important; height: auto !important; border-radius: 4px; }
+.profile-qr-inside {
+  position: absolute; left: 50%; bottom: -28px; transform: translateX(-50%);
+  width: 220px; max-width: 85%; background: #fff; padding: 10px; border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18); display: flex; flex-direction: column; align-items: center;
+}
+.profile-qr-inside canvas { width: 100% !important; height: auto !important; display: block; }
+.profile-card-visual { overflow: visible; padding-bottom: 4.5rem; }
+.profile-card-visual.profile-card-visual--large .profile-qr-inside { width: 240px; bottom: -36px; }
+
+@media (max-width: 480px) {
+  .profile-qr-inside { width: 72%; bottom: -22px; padding: 8px; }
+  .profile-card-visual { padding-bottom: 3.5rem; }
+}
 .profile-qr-label { font-size: 0.75rem; color: var(--color-text-secondary); text-align: center; }
 .profile-card-preview.profile-card-preview--share {
   padding: 1rem 0 0;
