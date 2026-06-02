@@ -45,17 +45,16 @@ export function renderPerfil() {
                   <div class="profile-card-name" id="card-name">${p.nombre || 'Nombre'} ${p.apellido || 'Apellido'}</div>
                   <div class="profile-card-dept" id="card-dept">${p.departamento || 'Departamento'}</div>
                 </div>
-                <div class="profile-card-contact" id="card-contact">
-                  ${p.email || 'email@seguas.com'}<br>${p.telefono || '+34 000 000 000'}
-                </div>
               </div>
-
               <div class="profile-card-side">
                 <div class="profile-qr-container profile-qr-inside">
                   <div id="qr-code"></div>
                 </div>
               </div>
             </div>
+              <div class="profile-card-contact" id="card-contact">
+                  ${p.email || 'email@seguas.com'}<br>${p.telefono || '+34 000 000 000'}
+              </div>
           </div>
         </div>
       </div>
